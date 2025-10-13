@@ -9,31 +9,30 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var increaseButton: UIButton!
-    @IBOutlet weak var decreaseButton: UIButton!
-    @IBOutlet weak var zeroButton: UIButton!
-    @IBOutlet weak var historyText: UITextView!
-    @IBOutlet weak var textCount: UILabel!
+    @IBOutlet private weak var increaseButton: UIButton!
+    @IBOutlet private weak var decreaseButton: UIButton!
+    @IBOutlet private weak var zeroButton: UIButton!
+    @IBOutlet private weak var historyText: UITextView!
+    @IBOutlet private weak var textCount: UILabel!
     private var number: Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
-    func getTime() -> String{
+    private func getTime() -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy HH:mm"
         let dateString = formatter.string(from: Date())
         return dateString
     }
 
-    @IBAction func clickIncreaseButton(_ sender: Any) {
+    @IBAction private func clickIncreaseButton(_ sender: Any) {
         number += 1
         textCount.text = "Значение счётчика: \(number)"
         historyText.text += "\n[\(getTime())]: значение изменено на +1"
     }
     
-    @IBAction func clickDecreaseButton(_ sender: Any) {
+    @IBAction private func clickDecreaseButton(_ sender: Any) {
         if number > 0 {
             number -= 1
             textCount.text = "Значение счётчика: \(number)"
@@ -43,7 +42,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func clickZeroButton(_ sender: Any) {
+    @IBAction private func clickZeroButton(_ sender: Any) {
         number = 0
         textCount.text = "0"
         historyText.text += "\n[\(getTime())]: значение сброшено"
