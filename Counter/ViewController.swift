@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    
     private func getTime() -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy HH:mm"
